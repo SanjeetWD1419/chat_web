@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-time Chat App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loginOverlay" class="overlay">
+    <div class="card">
+      <h2>Join Chat</h2>
+      <label>Username</label>
+      <input id="usernameInput" placeholder="Choose a username" />
+      <label>Room</label>
+      <input id="roomInput" placeholder="Room name (or create new)" />
+      <div class="row">
+        <button id="joinBtn">Join</button>
+        <button id="createBtn">Create & Join</button>
+      </div>
+      <p class="hint">Usernames must be unique within active users.</p>
+      <div id="loginError" class="error"></div>
+    </div>
+  </div>
+
+  <main class="container hidden" id="chatApp">
+    <aside class="sidebar">
+      <section class="rooms">
+        <h3>Rooms</h3>
+        <ul id="roomsList"></ul>
+        <div class="small">Active room: <span id="activeRoomName">—</span></div>
+      </section>
+      <section class="users">
+        <h3>Users</h3>
+        <ul id="usersList"></ul>
+      </section>
+    </aside>
+
+    <section class="chat">
+      <header class="chatHeader">
+        <h2 id="roomTitle">—</h2>
+        <div id="notif" class="notif hidden">New message</div>
+      </header>
+
+      <div id="messages" class="messages" tabindex="0"></div>
+
+      <form id="messageForm" class="messageForm">
+        <input id="messageInput" placeholder="Type a message — supports **bold**, *italic*, and links" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="client.js"></script>
+</body>
+</html>
